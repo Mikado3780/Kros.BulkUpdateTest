@@ -57,7 +57,9 @@ namespace BulkUpdateTest
         }
 
         private static string ConnectionString() =>
-                $"Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog={PathHelper.BuildPath(Environment.CurrentDirectory, "Db.mdf")};Integrated Security = SSPI;Integrated Security=True";
+                "Data Source=(LocalDB)\\MSSQLLocalDB; " +
+                $"AttachDbFilename={PathHelper.BuildPath(Environment.CurrentDirectory, "Db.mdf")};" +
+                " Integrated Security=True; Connect Timeout=30; User ID=test; Password=test;";
 
         private static string ProviderName() => "System.Data.SqlClient";
 
